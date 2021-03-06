@@ -1,0 +1,114 @@
+<body class="dark-mode">
+    <div class="container-fluid p-2">
+     <div>
+      <div  >
+       <div class="movie-wrapper">
+        <h6>{{actionmovietitle}}</h6>
+        <div class="movie-panel inner-style-3 d-flex">
+         <div  *ngFor="let movieindex of gridMoviesDetailsData">
+           <div class="card" style="width: 18rem;" [routerLink]="['./movies',movieindex.id]">
+             <img class="card-img-top"  src="{{url}}/{{movieindex.poster_path}}" alt="Card image cap">
+             <div class="card-body">
+               <h5 class="card-title">{{movieindex.title}}</h5>
+             </div>
+           </div>
+           
+         </div>
+        </div>
+       </div>
+       <div class="movie-wrapper">
+        <h6>{{AdventureTitle}}</h6>
+        <div class="movie-panel inner-style-3 d-flex">
+         <div  *ngFor="let movieindex of AdventureMoviesDetailsData">
+           <div class="card" style="width: 18rem;"  [routerLink]="['./movies',movieindex.id]">
+             <img class="card-img-top" src="{{url}}/{{movieindex.poster_path}}" alt="Card image cap">
+             <div class="card-body">
+               <h5 class="card-title">{{movieindex.title}}</h5>
+             </div>
+           </div>
+           
+         </div>
+        </div>
+       </div>
+  
+       <div class="movie-wrapper">
+        <h6>{{AnimationTitle}}</h6>
+        <div class="movie-panel inner-style-3 d-flex">
+         <div  *ngFor="let movieindex of AnimationMoviesDetailsData">
+           <div class="card" style="width: 18rem;"  [routerLink]="['./movies',movieindex.id]">
+             <img class="card-img-top" src="{{url}}/{{movieindex.poster_path}}" alt="Card image cap">
+             <div class="card-body">
+               <h5 class="card-title">{{movieindex.title}}</h5>
+             </div>
+           </div>
+           
+         </div>
+        </div>
+       </div>
+
+       <div class="movie-wrapper">
+        <h6>{{ComedyTitle}}</h6>
+        <div class="movie-panel inner-style-3 d-flex">
+         <div  *ngFor="let movieindex of ComedyMoviesDetailsData">
+           <div class="card" style="width: 18rem;"  [routerLink]="['./movies',movieindex.id]">
+             <img class="card-img-top" src="{{url}}/{{movieindex.poster_path}}" alt="Card image cap">
+             <div class="card-body">
+               <h5 class="card-title">{{movieindex.title}}</h5>
+             </div>
+           </div>
+           
+         </div>
+        </div>
+       </div>
+
+       <div class="movie-wrapper">
+        <h6>{{CrimeTitle}}</h6>
+        <div class="movie-panel inner-style-3 d-flex">
+         <div  *ngFor="let movieindex of CrimeMoviesDetailsData">
+           <div class="card" style="width: 18rem;"  [routerLink]="['./movies',movieindex.id]">
+             <img class="card-img-top" src="{{url}}/{{movieindex.poster_path}}" alt="Card image cap">
+             <div class="card-body">
+               <h5 class="card-title">{{movieindex.title}}</h5>
+             </div>
+           </div>
+           
+         </div>
+        </div>
+       </div>
+
+
+       <div class="movie-wrapper">
+        <h6>{{DocumentaryTitle}}</h6>
+        <div class="movie-panel inner-style-3 d-flex">
+         <div  *ngFor="let movieindex of DocumentaryMoviesDetailsData">
+           <div class="card" style="width: 18rem;"  [routerLink]="['./movies',movieindex.id]">
+             <img class="card-img-top" src="{{url}}/{{movieindex.poster_path}}" alt="Card image cap">
+             <div class="card-body">
+               <h5 class="card-title">{{movieindex.title}}</h5>
+             </div>
+           </div>
+           
+         </div>
+        </div>
+       </div>
+
+
+       <div class="movie-wrapper">
+        <h6>{{DramaTitle}}</h6>
+        <div class="movie-panel inner-style-3 d-flex">
+         <div  *ngFor="let movieindex of DramaMoviesDetailsData">
+           <div class="card" style="width: 18rem;"  [routerLink]="['./movies',movieindex.id]">
+             <img class="card-img-top" src="{{url}}/{{movieindex.poster_path}}" alt="Card image cap">
+             <div class="card-body">
+               <h5 class="card-title">{{movieindex.title}}</h5>
+             </div>
+           </div>
+           
+         </div>
+        </div>
+       </div>
+      </div>
+     </div>
+    </div>
+  </body>
+

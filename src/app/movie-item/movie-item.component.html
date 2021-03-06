@@ -1,0 +1,61 @@
+
+<body class="dark-mode">
+    <div class="container-fluid p-2">
+        <div class="movie-detail-page">
+            <div class="cover-img" style="background-image: url('{{moviepath}}'); width: 100%; height: 460px;background-repeat: no-repeat; 
+            background-position: right;
+            background-size: contain;width: 100%;
+   
+    backdrop-filter: opacity(0);">
+   
+    
+
+    <div class="col-grid-1">
+        <div>
+            <h4>{{MoviesDetailsbyid.original_title}}</h4>
+        </div>
+        <div>
+            <p>{{MoviesDetailsbyid.overview}}</p>
+        </div>
+        <div class=" relesedate">
+            <div>{{MoviesDetailsbyid.release_date}}</div>
+        </div>
+        <div class="movies-btn">
+            <button type="button" class="btn btn-primary ">Continue Watching</button>
+            <button type="button" class="btn btn-default">Add To Watchlist</button>
+            <button type="button" class="btn btn-default">Download</button>
+            <button type="button" class="btn btn-default">Watch Party</button>
+        </div>
+      
+        <div class="col-grid-22 mt-4">
+            <div>
+                <img class="card-img-top" style="height: 150px;
+                width: 100%;
+                min-width: 100px;
+                border-top-left-radius: calc(.25rem - 1px);
+                border-top-right-radius: calc(.25rem - 1px);"  src="{{url}}/{{MoviesDetailsbyid.poster_path}}" alt="Card image cap">
+            </div>
+            <div class="col-grid-2">
+                <div class="relesedate">
+                    Audio languages
+                </div>
+                <div class="label-value d-flex">
+                    <div *ngFor="let movieindex of MoviesDetailsbyid.spoken_languages">
+                        {{movieindex.name}} &nbsp;
+                    </div>
+                </div>
+                <div class="relesedate">Revenue</div>
+                <div class="label-value">{{MoviesDetailsbyid.revenue}}</div>
+                <div class="relesedate">Popularity</div>
+                <div class="label-value">{{MoviesDetailsbyid.popularity}}</div>
+                <div class="relesedate">Popularity</div>
+                <div class="label-value">{{MoviesDetailsbyid.status}}</div>
+           </div>
+       
+        </div>
+      
+    </div>
+    </div>
+        </div>
+    </div>
+</body>

@@ -1,0 +1,218 @@
+
+<div >
+   <div class="home-page">
+       <div class="container-wrapper">
+           <div class="header-bar">
+               <h6>House Details</h6>
+           </div>
+           <div class="container-inner">
+                <form [formGroup]="housedetails">
+                    <div class="col-grid-6">
+                        <div class="label-name">
+                           <label class="form-control">House Name :<span class="required-field">*</span></label>
+                        </div>
+                        <div class="label-value">
+                            <input class="k-textbox" placeholder="House Name" kendoTextBox formControlName="housename"
+                            name="input-small" type="text"
+                            [ngClass]="{ 'is-invalid':housedetails.get('housename').touched &&
+                            housedetails.get('housename').errors }">
+                            <div  class="invalid-feedback">
+                            <div *ngIf="housedetails.controls['housename'].hasError('required')
+                            && (housedetails.controls['housename'].dirty || housedetails.controls['housename'].touched)">House Name is required</div>
+                            </div>
+                        </div>
+
+                        <div class="label-name">
+                            <label class="form-control">Form Date :<span class="required-field">*</span></label>
+                         </div>
+                         <div class="label-value">
+                             <input class="k-textbox"  placeholder="Form Date" kendoTextBox formControlName="formdate"
+                             name="input-small" type="date"
+                             [ngClass]="{ 'is-invalid':housedetails.get('formdate').touched &&
+                             housedetails.get('formdate').errors }">
+                             <div  class="invalid-feedback">
+                             <div *ngIf="housedetails.controls['formdate'].hasError('required')
+                             && (housedetails.controls['formdate'].dirty || housedetails.controls['formdate'].touched)">Form date is required</div>
+                             </div>
+                         </div>
+
+
+                         <div class="label-name">
+                            <label class="form-control">To Date: <span class="required-field">*</span></label>
+                         </div>
+                         <div class="label-value">
+                             <input class="k-textbox" placeholder="To Date" kendoTextBox formControlName="todate"
+                             name="input-small" type="date"
+                             [ngClass]="{ 'is-invalid':housedetails.get('todate').touched &&
+                             housedetails.get('todate').errors }">
+                             <div  class="invalid-feedback">
+                             <div *ngIf="housedetails.controls['todate'].hasError('required')
+                             && (housedetails.controls['todate'].dirty || housedetails.controls['todate'].touched)">To date is required</div>
+                             </div>
+                         </div>
+
+                         
+                         <div class="label-name">
+                            <label class="form-control">Rent Amount: <span class="required-field">*</span></label>
+                         </div>
+                         <div class="label-value">
+                             <input class="k-textbox"  placeholder="Rent amount" kendoTextBox formControlName="rentamount"
+                             name="input-small" type="number"
+                             [ngClass]="{ 'is-invalid':housedetails.get('rentamount').touched &&
+                             housedetails.get('rentamount').errors }">
+                             <div  class="invalid-feedback">
+                             <div *ngIf="housedetails.controls['rentamount'].hasError('required')
+                             && (housedetails.controls['rentamount'].dirty || housedetails.controls['rentamount'].touched)">Rent amount is required (Enter only Positive Amount)</div>
+                             </div>
+                         </div>
+
+                         <div class="label-name">
+                            <label class="form-control" for="houseon">House On: <span class="required-field">*</span></label>
+                         </div>
+                         <div class="label-value d-flex">
+                            <input id="rent" type="radio" value="Rent" name="houseon" formControlName="houseon">
+                            <label  class="label-name" for="rent">Rent</label>
+                            <input id="SelfOccupied" type="radio" value="Self Occupied" name="houseon" formControlName="houseon">
+                            <label  class="label-name" for="SelfOccupied">Self Occupied</label>
+                         </div>
+                         <div class="label-name">
+                            <label class="form-control" for="two">Is Active: <span class="required-field">*</span></label>
+                         </div>
+
+                         <div class="label-value">
+                            <input type="checkbox" formControlName="isActive" class="custom-control-input" name="two" id="two" />
+
+                         </div>
+
+                         <div></div>
+                         <div></div>
+                         <div></div>
+                         <div></div>
+                         <div></div>
+                         <div></div>
+                         <div></div>
+                         <div></div>
+                         <div></div>
+                         <div></div>
+                         <div></div>
+                         <div>
+                            <button class="btn btn-default pull-right" (click)="ResetForm()" title="Save">Reset</button>
+                            &nbsp;&nbsp;
+                            <button class="btn btn-primary pull-right" (click)="SubmitForm()" title="Save"
+                            [disabled]="(!housedetails.valid)">Submit</button>&nbsp;&nbsp;
+                         </div>
+                    
+
+
+
+                    </div>
+                </form>
+           </div>
+       </div>
+
+       <div class="container-wrapper">
+        <table id="customers">
+            <tr>
+                <th>SR No.</th>
+                <th>House Name</th>
+              <th>Form Date</th>
+              <th>To date</th>
+              <th>House On</th>
+              <th>Rent Amount</th>
+              <th>Action</th>
+            </tr>
+            <tr  *ngFor="let item of HouseList;let i=index">
+                <td>{{i+1}}</td>
+              <td>{{item.housename}}</td>
+              <td>{{item.formdate}}</td>
+              <td>{{item.todate}}</td>
+              <td>{{item.houseon}}</td>
+              <td>{{item.rentamount}}</td>
+              <td>
+                <button class="btn btn-primary"   title="Edit">Edit</button>
+                &nbsp;&nbsp;
+                <button class="btn btn-default"  (click)="Deleteitem(i);"  title="Delete"
+               >Delete</button>&nbsp;&nbsp;
+               <button class="btn btn-primary"  (click)="OpenView(i);"  title="View Details"
+               >View</button>&nbsp;&nbsp;
+              </td>
+            </tr>
+          </table>
+       </div>
+   </div>
+</div>
+
+
+<div>
+    <div #imgmodal class="modal">
+
+        <!-- Modal content -->
+        <div class="modal-content">
+          <div class="modal-header">
+            <span class="close" (click)="closemodel()">&times;</span>
+            <h6>House Detail</h6>
+          </div>
+          <div class="modal-body">
+
+                <div class="col-grid-6">
+                    <div class="label-name">
+                       <label class="form-control">House Name :</label>
+                    </div>
+                    <div class="label-value">
+                      {{HouseName}}
+                    </div>
+    
+                    <div class="label-name">
+                        <label class="form-control">Form Date :</label>
+                     </div>
+                     <div class="label-value">
+                       {{formatDate}}
+                     </div>
+    
+    
+                     <div class="label-name">
+                        <label class="form-control">To Date :</label>
+                     </div>
+                     <div class="label-value">
+                        {{Todate}}
+                     </div>
+    
+                     
+                     <div class="label-name">
+                        <label class="form-control">Rent Amount: </label>
+                     </div>
+                     <div class="label-value">
+                         {{RentedOn}}
+                     </div>
+    
+                     <div class="label-name">
+                        <label class="form-control" for="edithouseon">House On :</label>
+                     </div>
+                     <div class="label-value d-flex">
+                       {{HouseOn}}
+                     </div>
+                     <div class="label-name">
+                        <label class="form-control" for="edittwo">Is Active :</label>
+                     </div>
+    
+                     <div class="label-value">
+    {{isActive}}
+                     </div>
+    
+                
+    
+    
+    
+                </div>
+
+         
+        
+        </div>
+         
+
+        </div>
+      
+      </div>
+</div>
+
+
